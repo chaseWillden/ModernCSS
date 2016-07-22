@@ -1,0 +1,41 @@
+.card{
+	background-color: white;
+	@include box-shadow(0, 1px, 6px, -2px, rgba(0,0,0,.8));
+	@include border-radius(3px);
+	padding: 14px;
+
+	.title{
+		font-size: x-large;
+		border-bottom: solid 1px #ccc;
+		margin-bottom: 8px;
+		padding-bottom: 12px;
+		font-weight: 200;
+	}
+
+	.body{
+		margin-top: 8px;
+	}
+
+	@each $name, $code in $colors {
+		&.#{$name}{
+			background-color: $code;
+			color: white;
+			.title{
+				border-bottom-color: lighten($code, 8%);
+			}
+		}
+	}
+
+	&.border{
+		@each $name, $code in $colors {
+			&.#{$name}{
+				background-color: white;
+				color: #333;
+				border-bottom: solid 3px $code;
+				.title{
+					border-bottom-color: lighten($code, 8%);
+				}
+			}
+		}
+	}
+}

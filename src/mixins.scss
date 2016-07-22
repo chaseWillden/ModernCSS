@@ -1,0 +1,28 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow($hor, $vert, $blur, $spread, $color) {
+  -webkit-box-shadow: $hor $vert $blur $spread $color;
+     -moz-box-shadow: $hor $vert $blur $spread $color;
+      -ms-box-shadow: $hor $vert $blur $spread $color;
+          box-shadow: $hor $vert $blur $spread $color;
+}
+
+@mixin transition($type, $what, $speed) {
+  -webkit-transition: $type $what $speed;
+  -moz-transition: $type $what $speed;
+  -ms-transition: $type $what $speed;
+  -o-transition: $type $what $speed;
+  transition: $type $what $speed;
+}
+
+@mixin select(){
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */ 
+}

@@ -1,0 +1,46 @@
+.table{
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+
+	tr:first-child th{
+		font-weight: bolder;
+		border-bottom: solid 1px #ccc;
+	}
+
+	&.border{
+		td, th{
+			border-bottom: solid 1px #ccc;
+		}
+	}
+
+	td, th{
+		padding: 8px;
+	}
+
+	&.compact{
+		td, th{
+			padding: 4px 8px;
+		}
+	}
+
+	&.striped{
+		tr:nth-child(even){
+			background-color: #e8e8e8;
+		}
+	}
+
+	&.hover tr:hover{
+		background-color: darken(#e8e8e8, 2%);
+	}
+
+	@each $name, $code in $colors {
+		&.#{$name}{
+			&.striped{
+				tr:nth-child(even){
+					background-color: lighten($code, 41%);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,50 @@
+.menu{
+
+	&.top{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+
+		&.container{
+			margin-top: 50px;
+		}
+	}
+
+	&.fixed{
+		position: fixed;
+	}
+
+	>.items {
+		list-style: none;
+
+		>.item{
+			cursor: pointer;
+			display: inline-block;
+		}
+	}
+
+	@each $size in $sizes {
+		$i: index($sizes, $size);
+		&.#{$size}{
+			> .items > .item{
+				padding: (($i * 1.5) + 6px) 10px;
+			}
+		}
+	}
+
+	@each $name, $code in $colors {
+		&.#{$name}{
+			background-color: $code;
+			color: white;
+
+			>.items{
+				>.item{
+					&:hover{
+						background-color: lighten($code, 5%);
+					}
+				}
+			}
+		}
+	}
+}

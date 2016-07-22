@@ -1,0 +1,21 @@
+.pullout{
+	@include border-radius(3px);
+	margin: 8px 7px;
+	padding: 20px;
+
+	@each $name, $code in $colors {
+		&.#{$name}{
+			border-left: solid 8px $code;
+		}
+	}
+}
+
+body{
+	@each $name, $code in $colors {
+		&.#{$name}{
+			.pullout{
+				background-color: darken($code, 5%);
+			}
+		}
+	}
+}

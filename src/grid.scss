@@ -1,0 +1,21 @@
+$columns: one two three four five six seven eight nine ten eleven twelve;
+
+.row {
+	display: inline-table;
+	width: 100%;
+	
+	.column {
+		display: inline-block;
+		float: left;
+		min-height: 10px;
+
+		@each $size in $columns {
+			$i: index($columns, $size);
+			$width: percentage($i / 12);
+			&.#{$size}{
+				width: $width;
+			}
+		}
+	}
+
+}

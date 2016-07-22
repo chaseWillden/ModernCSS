@@ -1,0 +1,46 @@
+.list{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	&.bullet{
+		list-style: inherit;
+		padding-left: 40px;
+	}
+
+	&.line{
+		> li{
+			border-bottom: solid 1px #ccc;
+			padding: 3px;
+		}
+	}
+
+	&.link{
+		> li{
+			padding: 3px;
+
+			&.active a{
+				color: darken($blue, 15%);
+			}
+
+			a{
+				color: lighten($blue, 10%);
+				text-decoration: none;
+
+				&:hover{
+					color: darken($blue, 10%);
+				}
+			}
+		}
+
+		@each $name, $code in $colors {
+			&.#{$name} > li a{
+				color: lighten($code, 10%);
+
+				> li a:hover{
+					color: darken($code, 5%);
+				}
+			}
+		}
+	}
+}

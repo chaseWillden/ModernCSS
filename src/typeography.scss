@@ -1,0 +1,48 @@
+p{
+	padding: 7px;
+}
+
+.highlight{
+	background-color: yellow;
+	@include border-radius(2px);
+
+	@each $name, $code in $colors {
+		&.#{$name}{
+			background-color: lighten($code, 20%);
+		}
+	}
+}
+
+.underline{
+	background-color: transparent;
+	border-bottom: solid 2px yellow;
+	@each $name, $code in $colors {
+		&.#{$name}{
+			border-bottom-color: lighten($code, 20%);
+		}
+	}
+}
+
+$header-list: h1 h2 h3 h4 h5 h6;
+
+@each $name in $header-list {
+	$i: index($header-list, $name);
+	#{$name}{
+		font-size: 63px - ($i * 8);
+		margin: (2rem - (($i / 6) * 2)) 0 (1.6rem - (($i / 6) * 2)) 0;
+		font-weight: 400;
+	}
+}
+
+blockquote{
+	border-left: solid 5px transparent;
+	margin: 8px;
+	padding: 6px;
+	padding-left: 20px;
+
+	@each $name, $code in $colors {
+		&.#{$name}{
+			border-left-color: $code;
+		}
+	}
+}

@@ -1,0 +1,67 @@
+/**
+ * Medium button size is default
+ */
+
+
+
+.button{
+	outline: none;
+	display: inline-block;
+	border: solid 1px transparent;
+	padding: 8px 12px;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	@include transition(ease, background-color, .2s);
+	font-size: 14px;
+	font-family: 'Source Sans Pro',sans-serif;
+	margin: 2px;
+	@include border-radius(3px);
+	@include select();
+
+	&.square{
+		@include border-radius(0px);
+	}
+
+	&.active-fill{
+		@each $name, $code in $colors {
+			&.#{$name}:active{
+				background-color: $code !important;
+				color: white;
+			}
+		}
+	}
+
+	@each $size in $sizes {
+		$i: index($sizes, $size);
+		&.#{$size}{
+			padding: ($pixel * $i * $i) (($pixel * $i * $i) + 4);
+		}
+	}
+
+	@each $name, $code in $colors {
+		&.#{$name}{
+			background-color: $code;
+			color: white;
+			border-color: darken($code, 2%);
+
+			&:hover{
+				background-color: darken($code, 5%);
+			}
+		}
+	}
+
+	&.outline{
+		@each $name, $code in $colors {
+			&.#{$name}{
+				background-color: #fff;
+				color: $code;
+				border-color: darken($code, 2%);
+
+				&:hover{
+					background-color: darken(#fff, 5%);
+				}
+			}
+		}
+	}
+}

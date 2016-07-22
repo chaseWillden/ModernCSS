@@ -1,0 +1,54 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+}
+
+html {
+  height: 100%;
+}
+
+body{
+	font-family: 'Source Sans Pro',sans-serif;
+	min-height: 100%;
+	padding: 0;
+	margin: 0;
+	color: #333;
+	font-size: 14px;
+
+	@each $name, $code in $colors {
+		&.#{$name}{
+			background-color: $code;
+		}
+	}
+}
+
+.right{
+	float: right;
+}
+
+.center{
+	text-align: center !important;
+}
+
+.anchor:hover:after{
+	content: '¶';
+	font-size: 1.5rem;
+	margin-left: 13px;
+	cursor: pointer;
+	font-style: italic;
+	color: #2175a2;
+}
+
+#anchor-container{
+	background-color: transparent;
+	border: none;
+	color: transparent;
+	outline: none;
+	position: absolute;
+	bottom: -100px;
+	left: 0;
+}
