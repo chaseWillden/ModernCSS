@@ -1,2 +1,2 @@
-open index.html
-sass --watch src/main.scss:dist/dist.css
+# open index.html
+sass --watch src/main.scss:dist/dist.css -q

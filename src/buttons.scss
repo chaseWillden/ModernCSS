@@ -32,6 +32,16 @@
 		}
 	}
 
+	&.loading{
+		@each $name, $code in $colors {
+			&.#{$name}{
+				background-color: lighten($code, 5%) !important;
+				border-color: lighten($code, 3%);
+				color: white;
+			}
+		}
+	}
+
 	@each $size in $sizes {
 		$i: index($sizes, $size);
 		&.#{$size}{
@@ -42,13 +52,22 @@
 	@each $name, $code in $colors {
 		&.#{$name}{
 			background-color: $code;
-			color: white;
+			@if $name == white {
+				color: black;
+			}
+			@else {
+				color: white;
+			}
 			border-color: darken($code, 2%);
 
-			&:hover{
+			&:hover:not(.active){
 				background-color: darken($code, 5%);
 			}
 		}
+	}
+
+	&.full{
+		width: 100%;
 	}
 
 	&.outline{
@@ -63,5 +82,10 @@
 				}
 			}
 		}
+	}
+
+	&.condensed{
+		margin: 0;
+		border: none;
 	}
 }

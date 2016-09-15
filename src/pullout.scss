@@ -8,6 +8,10 @@
 			border-left: solid 8px $code;
 		}
 	}
+
+	&.condensed{
+		padding: 5px 20px;
+	}
 }
 
 body{

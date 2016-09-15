@@ -1,0 +1,45 @@
+.input{
+	outline: none;
+	display: block;
+	width: 100%;
+	font-size: 16px;
+	padding: 8px;
+	border: solid 1px darken($grey, 20%);
+	@include border-radius(2px);
+
+	&.border{
+		border: none;
+		border-bottom: solid 1px $black;
+		background-color: transparent;
+		&:focus{
+			border-bottom-color: lighten($black, 20%);
+		}
+	}
+
+	@each $name, $code in $colors {
+		&.#{$name}{
+			border-bottom-color: $code;
+			&:hover{
+				border-color: darken($grey, 30%);
+				border-bottom-color: $code;
+			}
+		}
+	}
+
+	@each $size in $sizes {
+		$i: index($sizes, $size);
+		&.#{$size}{
+			font-size: $i * 14px;
+		}
+	}
+}
+
+label{
+	font-weight: bold;
+	padding-bottom: 4px;
+	display: block;
+}
+
+textarea.input{
+	resize: none;
+}

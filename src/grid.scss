@@ -17,5 +17,14 @@ $columns: one two three four five six seven eight nine ten eleven twelve;
 			}
 		}
 	}
+}
 
+.padding{
+	padding-top: 10px;
+	@each $size in $columns {
+		$i: index($columns, $size);
+		&.#{$size}{
+			padding-top: (($i / 12) * 100px);
+		}
+	}
 }
